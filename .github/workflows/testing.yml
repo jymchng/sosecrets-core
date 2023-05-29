@@ -28,7 +28,8 @@ jobs:
         run: |
           pip install cython
           cythonize ${{ github.workspace }}/sosecrets_core/secrets.pyx
-          python -m setup install
+          cd ${{ github.workspace }}
+          python -m sosecrets_core.setup install
           
       - name: Run tests
         run: |
