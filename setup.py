@@ -40,8 +40,6 @@ else:
         Extension("sosecrets_core.secrets", ["sosecrets_core/secrets.c"]),
     ]
 
-print(f"{ext_modules=}")
-
 setup(
     name='sosecrets_core',
     version="0.1.0",
