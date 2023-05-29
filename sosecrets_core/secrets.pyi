@@ -1,6 +1,19 @@
 from typing import Callable, Optional, Any, Dict, Tuple, ClassVar
 
 class Secret:
+    """The Secret class is a Python class that encapsulates a secret value and provides methods to access and manipulate it.
+    The secret value can be initialized either with a direct value or with a function that generates the value.
+    The class allows for limiting the number of times the secret value can be exposed, which can be useful in certain security contexts.
+
+    The `expose_secret()` method returns the inner secret value and increments the exposure count.
+    If the exposure count reaches the maximum exposure count, an AttributeError is raised.
+    
+    The `apply()` method applies a function to the inner secret value and returns a new Secret object with the result.
+    The original Secret object is not modified.
+
+    This class provides a way to control access to sensitive data by encapsulating it within a class and allowing access only through well-defined methods.
+    This can help prevent accidental exposure of sensitive data and enable better security practices.
+    """
     expose_count: ClassVar[int]
     max_expose_count: ClassVar[int]
 
