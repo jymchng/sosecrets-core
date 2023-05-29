@@ -29,7 +29,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install cython, pytest
+          pip install cython
+          pip install pytest
           cythonize ${{ github.workspace }}/sosecrets_core/secrets.pyx
           python -m setup install
           
