@@ -69,3 +69,4 @@ MANIFEST
 dev-notes/*
 */build/*
 scripts/dev/*
+archive_setup.py
