@@ -51,6 +51,8 @@ setup(
     package_dir={
         'sosecrets_core': 'sosecrets_core',
     },
+    package_data={"sosecrets_core": ["py.typed", "secrets.pyi"]},
+    include_package_data=True,
     cmdclass=cmdclass,
     ext_modules=ext_modules,
 
