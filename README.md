@@ -2,7 +2,7 @@
 
 ![https://img.shields.io/github/actions/workflow/status/jymchng/sosecrets-core/testing.yml](https://img.shields.io/github/actions/workflow/status/jymchng/sosecrets-core/testing.yml) ![https://img.shields.io/pypi/pyversions/sosecrets-core](https://img.shields.io/pypi/pyversions/sosecrets-core)
 
-Version: 1.0.3
+Version: 1.0.4
 
 This Repo is a Cython implementation of a `Secret` class that allows you to hide a value or function behind a layer of security. The idea is that you can expose the secret value or function only a limited number of times, and only through a function call that checks the current exposure count against a maximum exposure count.
 
