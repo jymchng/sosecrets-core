@@ -58,7 +58,7 @@ jobs:
         run: |
           pip install cython
           pip install pytest
-          pip install sosecrets_core
+          pip install --index-url https://test.pypi.org/simple/ sosecrets-core
           
       - name: Run tests
         run: |

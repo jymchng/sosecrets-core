@@ -22,7 +22,7 @@ classifiers = [
 python = "^3.7"
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "setuptools>=57.0.0", "Cython>=0.29.27"]
+requires = ["poetry-core>=1.0.0", "setuptools", "Cython"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.bumpver]
