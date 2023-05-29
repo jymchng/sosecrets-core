@@ -19,6 +19,10 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        run: |
+          cd ${{ github.workspace }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
@@ -28,8 +32,7 @@ jobs:
         run: |
           pip install cython
           cythonize ${{ github.workspace }}/sosecrets_core/secrets.pyx
-          cd ${{ github.workspace }}
-          python -m sosecrets_core.setup install
+          python -m setup install
           
       - name: Run tests
         run: |
