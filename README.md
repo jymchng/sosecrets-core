@@ -4,14 +4,16 @@
 
 Version: 1.0.4
 
-This Repo is a Cython implementation of a `Secret` class that allows you to hide a value or function behind a layer of security. The idea is that you can expose the secret value or function only a limited number of times, and only through a function call that checks the current exposure count against a maximum exposure count.
+This Repo is a Cython implementation of a `Secret` class that allows you to hide a value or function behind a layer of security.
+
+The idea is that you can expose the secret value only a limited number of times, and only through a function call that checks the current exposure count against a maximum exposure count.
 
 The `Secret` class has four attributes:
 
-`inner_secret`: a private attribute that stores the actual secret value or function.
-`expose_count`: a readonly attribute that keeps track of how many times the secret has been exposed.
-`max_expose_count`: a public (read and write) attribute that sets the maximum number of times the secret can be exposed. If set to any negative integers, there is no limit to the number of exposures.
-`apply`: a public method that applies a given function to the exposed secret and returns a new `Secret` object with the result.
+* `inner_secret`: a private attribute that stores the actual secret value or function.
+* `expose_count`: a readonly attribute that keeps track of how many times the secret has been exposed.
+* `max_expose_count`: a public (read and write) attribute that sets the maximum number of times the secret can be exposed. If set to any negative integers, there is no limit to the number of exposures.
+* `apply`: a public method that applies a given function to the exposed secret and returns a new `Secret` object with the result.
 
 ## API
 
@@ -30,7 +32,7 @@ Notes:
 * func: A function used to generate the initial value of the `Secret` object. Ignored if value is provided.
 * func_args: Positional arguments to pass to the `func` function.
 * func_kwargs: Keyword arguments to pass to the `func` function.
-* max_expose_count: The maximum number of times the `Secret` object can be exposed. Set to -1 for unlimited.
+* max_expose_count: The maximum number of times the `Secret` object can be exposed. Initialized to -1 for unlimited.
 
 Raises:
 
