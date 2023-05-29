@@ -1383,6 +1383,7 @@ int __pyx_module_is_main_secrets = 0;
 /* Implementation of 'secrets' */
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_AttributeError;
+static PyObject *__pyx_builtin_TypeError;
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_func[] = "func";
@@ -1400,6 +1401,7 @@ static const char __pyx_k_secrets[] = "secrets";
 static const char __pyx_k_getstate[] = "__getstate__";
 static const char __pyx_k_pyx_type[] = "__pyx_type";
 static const char __pyx_k_setstate[] = "__setstate__";
+static const char __pyx_k_TypeError[] = "TypeError";
 static const char __pyx_k_func_args[] = "func_args";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
@@ -1418,6 +1420,8 @@ static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_max_expose_count[] = "max_expose_count";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_pyx_unpickle_Secret[] = "__pyx_unpickle_Secret";
+static const char __pyx_k_Secret_as_a_class_attribute_is[] = "`Secret` as a class attribute is immutable";
+static const char __pyx_k_Secret_as_a_descriptor_is_inacc[] = "`Secret` as a descriptor is inaccessible through the class";
 static const char __pyx_k_Secret_cannot_be_exposed_more_t[] = "`Secret` cannot be exposed more than {} times";
 static const char __pyx_k_Secret_cannot_be_initialized_wi[] = "`Secret` cannot be initialized with both `value` positional argument and `func` keyword";
 static const char __pyx_k_Incompatible_checksums_0x_x_vs_0[] = "Incompatible checksums (0x%x vs (0xe1fdbe3, 0x92bfa01, 0x8c9d394) = (expose_count, inner_secret, max_expose_count))";
@@ -1425,8 +1429,11 @@ static PyObject *__pyx_n_s_AttributeError;
 static PyObject *__pyx_kp_s_Incompatible_checksums_0x_x_vs_0;
 static PyObject *__pyx_n_s_PickleError;
 static PyObject *__pyx_n_s_Secret;
+static PyObject *__pyx_kp_u_Secret_as_a_class_attribute_is;
+static PyObject *__pyx_kp_u_Secret_as_a_descriptor_is_inacc;
 static PyObject *__pyx_kp_u_Secret_cannot_be_exposed_more_t;
 static PyObject *__pyx_kp_u_Secret_cannot_be_initialized_wi;
+static PyObject *__pyx_n_s_TypeError;
 static PyObject *__pyx_n_s_ValueError;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_dict;
@@ -1462,11 +1469,13 @@ static PyObject *__pyx_n_s_value;
 static int __pyx_pf_7secrets_6Secret___init__(struct __pyx_obj_7secrets_Secret *__pyx_v_self, PyObject *__pyx_v_value, PyObject *__pyx_v_func, PyObject *__pyx_v_func_args, PyObject *__pyx_v_func_kwargs, int __pyx_v_max_expose_count); /* proto */
 static PyObject *__pyx_pf_7secrets_6Secret_2expose_secret(struct __pyx_obj_7secrets_Secret *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_7secrets_6Secret_4apply(struct __pyx_obj_7secrets_Secret *__pyx_v_self, PyObject *__pyx_v_func, PyObject *__pyx_v_func_args, PyObject *__pyx_v_func_kwargs); /* proto */
+static PyObject *__pyx_pf_7secrets_6Secret_6__get__(struct __pyx_obj_7secrets_Secret *__pyx_v_self, PyObject *__pyx_v_inst, CYTHON_UNUSED PyTypeObject *__pyx_v_owner); /* proto */
+static int __pyx_pf_7secrets_6Secret_8__set__(CYTHON_UNUSED struct __pyx_obj_7secrets_Secret *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_inst, CYTHON_UNUSED PyObject *__pyx_v_value); /* proto */
 static PyObject *__pyx_pf_7secrets_6Secret_12expose_count___get__(struct __pyx_obj_7secrets_Secret *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_7secrets_6Secret_16max_expose_count___get__(struct __pyx_obj_7secrets_Secret *__pyx_v_self); /* proto */
 static int __pyx_pf_7secrets_6Secret_16max_expose_count_2__set__(struct __pyx_obj_7secrets_Secret *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_7secrets_6Secret_6__reduce_cython__(struct __pyx_obj_7secrets_Secret *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_7secrets_6Secret_8__setstate_cython__(struct __pyx_obj_7secrets_Secret *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_7secrets_6Secret_10__reduce_cython__(struct __pyx_obj_7secrets_Secret *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_7secrets_6Secret_12__setstate_cython__(struct __pyx_obj_7secrets_Secret *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_7secrets___pyx_unpickle_Secret(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_tp_new_7secrets_Secret(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_147444628;
@@ -1478,7 +1487,9 @@ static PyObject *__pyx_k__4;
 static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_tuple__5;
 static PyObject *__pyx_tuple__6;
-static PyObject *__pyx_codeobj__7;
+static PyObject *__pyx_tuple__7;
+static PyObject *__pyx_tuple__8;
+static PyObject *__pyx_codeobj__9;
 /* Late includes */
 
 /* "secrets.pyx":8
@@ -1622,12 +1633,12 @@ static int __pyx_pf_7secrets_6Secret___init__(struct __pyx_obj_7secrets_Secret *
   __Pyx_RefNannySetupContext("__init__", 0);
   __Pyx_INCREF(__pyx_v_value);
 
-  /* "secrets.pyx":15
- *                  dict func_kwargs = {},
+  /* "secrets.pyx":16
  *                  int max_expose_count = -1):
+ * 
  *         if func is not None and value is not None:             # <<<<<<<<<<<<<<
  *             raise ValueError("`Secret` cannot be initialized with both `value` positional argument and `func` keyword")
- *         if func is not None:
+ * 
  */
   __pyx_t_2 = (__pyx_v_func != Py_None);
   __pyx_t_3 = (__pyx_t_2 != 0);
@@ -1642,74 +1653,74 @@ static int __pyx_pf_7secrets_6Secret___init__(struct __pyx_obj_7secrets_Secret *
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "secrets.pyx":16
- *                  int max_expose_count = -1):
+    /* "secrets.pyx":17
+ * 
  *         if func is not None and value is not None:
  *             raise ValueError("`Secret` cannot be initialized with both `value` positional argument and `func` keyword")             # <<<<<<<<<<<<<<
+ * 
  *         if func is not None:
- *             value = func(*func_args, **func_kwargs)
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 16, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 16, __pyx_L1_error)
+    __PYX_ERR(0, 17, __pyx_L1_error)
 
-    /* "secrets.pyx":15
- *                  dict func_kwargs = {},
+    /* "secrets.pyx":16
  *                  int max_expose_count = -1):
+ * 
  *         if func is not None and value is not None:             # <<<<<<<<<<<<<<
  *             raise ValueError("`Secret` cannot be initialized with both `value` positional argument and `func` keyword")
- *         if func is not None:
+ * 
  */
   }
 
-  /* "secrets.pyx":17
- *         if func is not None and value is not None:
+  /* "secrets.pyx":19
  *             raise ValueError("`Secret` cannot be initialized with both `value` positional argument and `func` keyword")
+ * 
  *         if func is not None:             # <<<<<<<<<<<<<<
  *             value = func(*func_args, **func_kwargs)
- *         self.inner_secret = value
+ * 
  */
   __pyx_t_1 = (__pyx_v_func != Py_None);
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "secrets.pyx":18
- *             raise ValueError("`Secret` cannot be initialized with both `value` positional argument and `func` keyword")
+    /* "secrets.pyx":20
+ * 
  *         if func is not None:
  *             value = func(*func_args, **func_kwargs)             # <<<<<<<<<<<<<<
+ * 
  *         self.inner_secret = value
- *         self.expose_count = 0
  */
     if (unlikely(__pyx_v_func_args == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 18, __pyx_L1_error)
+      __PYX_ERR(0, 20, __pyx_L1_error)
     }
     if (unlikely(__pyx_v_func_kwargs == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-      __PYX_ERR(0, 18, __pyx_L1_error)
+      __PYX_ERR(0, 20, __pyx_L1_error)
     }
-    __pyx_t_4 = PyDict_Copy(__pyx_v_func_kwargs); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_4 = PyDict_Copy(__pyx_v_func_kwargs); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_v_func, __pyx_v_func_args, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 18, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_v_func, __pyx_v_func_args, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 20, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF_SET(__pyx_v_value, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "secrets.pyx":17
- *         if func is not None and value is not None:
+    /* "secrets.pyx":19
  *             raise ValueError("`Secret` cannot be initialized with both `value` positional argument and `func` keyword")
+ * 
  *         if func is not None:             # <<<<<<<<<<<<<<
  *             value = func(*func_args, **func_kwargs)
- *         self.inner_secret = value
+ * 
  */
   }
 
-  /* "secrets.pyx":19
- *         if func is not None:
+  /* "secrets.pyx":22
  *             value = func(*func_args, **func_kwargs)
+ * 
  *         self.inner_secret = value             # <<<<<<<<<<<<<<
  *         self.expose_count = 0
  *         self.max_expose_count = max_expose_count
@@ -1720,8 +1731,8 @@ static int __pyx_pf_7secrets_6Secret___init__(struct __pyx_obj_7secrets_Secret *
   __Pyx_DECREF(__pyx_v_self->inner_secret);
   __pyx_v_self->inner_secret = __pyx_v_value;
 
-  /* "secrets.pyx":20
- *             value = func(*func_args, **func_kwargs)
+  /* "secrets.pyx":23
+ * 
  *         self.inner_secret = value
  *         self.expose_count = 0             # <<<<<<<<<<<<<<
  *         self.max_expose_count = max_expose_count
@@ -1729,7 +1740,7 @@ static int __pyx_pf_7secrets_6Secret___init__(struct __pyx_obj_7secrets_Secret *
  */
   __pyx_v_self->expose_count = 0;
 
-  /* "secrets.pyx":21
+  /* "secrets.pyx":24
  *         self.inner_secret = value
  *         self.expose_count = 0
  *         self.max_expose_count = max_expose_count             # <<<<<<<<<<<<<<
@@ -1760,12 +1771,12 @@ static int __pyx_pf_7secrets_6Secret___init__(struct __pyx_obj_7secrets_Secret *
   return __pyx_r;
 }
 
-/* "secrets.pyx":23
+/* "secrets.pyx":26
  *         self.max_expose_count = max_expose_count
  * 
  *     cpdef object expose_secret(self):             # <<<<<<<<<<<<<<
- *         if self.max_expose_count != -1:
- *             if self.expose_count < self.max_expose_count:
+ * 
+ *         if self.max_expose_count >= 0:
  */
 
 static PyObject *__pyx_pw_7secrets_6Secret_3expose_secret(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
@@ -1790,7 +1801,7 @@ static PyObject *__pyx_f_7secrets_6Secret_expose_secret(struct __pyx_obj_7secret
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_expose_secret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_expose_secret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_7secrets_6Secret_3expose_secret)) {
         __Pyx_XDECREF(__pyx_r);
@@ -1807,7 +1818,7 @@ static PyObject *__pyx_f_7secrets_6Secret_expose_secret(struct __pyx_obj_7secret
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -1828,19 +1839,19 @@ static PyObject *__pyx_f_7secrets_6Secret_expose_secret(struct __pyx_obj_7secret
     #endif
   }
 
-  /* "secrets.pyx":24
- * 
+  /* "secrets.pyx":28
  *     cpdef object expose_secret(self):
- *         if self.max_expose_count != -1:             # <<<<<<<<<<<<<<
+ * 
+ *         if self.max_expose_count >= 0:             # <<<<<<<<<<<<<<
  *             if self.expose_count < self.max_expose_count:
  *                 self.expose_count += 1
  */
-  __pyx_t_5 = ((__pyx_v_self->max_expose_count != -1L) != 0);
+  __pyx_t_5 = ((__pyx_v_self->max_expose_count >= 0) != 0);
   if (__pyx_t_5) {
 
-    /* "secrets.pyx":25
- *     cpdef object expose_secret(self):
- *         if self.max_expose_count != -1:
+    /* "secrets.pyx":29
+ * 
+ *         if self.max_expose_count >= 0:
  *             if self.expose_count < self.max_expose_count:             # <<<<<<<<<<<<<<
  *                 self.expose_count += 1
  *                 return self.inner_secret
@@ -1848,8 +1859,8 @@ static PyObject *__pyx_f_7secrets_6Secret_expose_secret(struct __pyx_obj_7secret
     __pyx_t_5 = ((__pyx_v_self->expose_count < __pyx_v_self->max_expose_count) != 0);
     if (likely(__pyx_t_5)) {
 
-      /* "secrets.pyx":26
- *         if self.max_expose_count != -1:
+      /* "secrets.pyx":30
+ *         if self.max_expose_count >= 0:
  *             if self.expose_count < self.max_expose_count:
  *                 self.expose_count += 1             # <<<<<<<<<<<<<<
  *                 return self.inner_secret
@@ -1857,7 +1868,7 @@ static PyObject *__pyx_f_7secrets_6Secret_expose_secret(struct __pyx_obj_7secret
  */
       __pyx_v_self->expose_count = (__pyx_v_self->expose_count + 1);
 
-      /* "secrets.pyx":27
+      /* "secrets.pyx":31
  *             if self.expose_count < self.max_expose_count:
  *                 self.expose_count += 1
  *                 return self.inner_secret             # <<<<<<<<<<<<<<
@@ -1869,16 +1880,16 @@ static PyObject *__pyx_f_7secrets_6Secret_expose_secret(struct __pyx_obj_7secret
       __pyx_r = __pyx_v_self->inner_secret;
       goto __pyx_L0;
 
-      /* "secrets.pyx":25
- *     cpdef object expose_secret(self):
- *         if self.max_expose_count != -1:
+      /* "secrets.pyx":29
+ * 
+ *         if self.max_expose_count >= 0:
  *             if self.expose_count < self.max_expose_count:             # <<<<<<<<<<<<<<
  *                 self.expose_count += 1
  *                 return self.inner_secret
  */
     }
 
-    /* "secrets.pyx":29
+    /* "secrets.pyx":33
  *                 return self.inner_secret
  *             else:
  *                 raise AttributeError('`Secret` cannot be exposed more than {} times'.format(self.max_expose_count))             # <<<<<<<<<<<<<<
@@ -1886,9 +1897,9 @@ static PyObject *__pyx_f_7secrets_6Secret_expose_secret(struct __pyx_obj_7secret
  *             self.expose_count += 1
  */
     /*else*/ {
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Secret_cannot_be_exposed_more_t, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Secret_cannot_be_exposed_more_t, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 33, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->max_expose_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->max_expose_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 33, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_4 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1903,27 +1914,27 @@ static PyObject *__pyx_f_7secrets_6Secret_expose_secret(struct __pyx_obj_7secret
       __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_4, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3);
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_AttributeError, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_AttributeError, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 33, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_Raise(__pyx_t_2, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __PYX_ERR(0, 29, __pyx_L1_error)
+      __PYX_ERR(0, 33, __pyx_L1_error)
     }
 
-    /* "secrets.pyx":24
- * 
+    /* "secrets.pyx":28
  *     cpdef object expose_secret(self):
- *         if self.max_expose_count != -1:             # <<<<<<<<<<<<<<
+ * 
+ *         if self.max_expose_count >= 0:             # <<<<<<<<<<<<<<
  *             if self.expose_count < self.max_expose_count:
  *                 self.expose_count += 1
  */
   }
 
-  /* "secrets.pyx":31
+  /* "secrets.pyx":35
  *                 raise AttributeError('`Secret` cannot be exposed more than {} times'.format(self.max_expose_count))
  *         else:
  *             self.expose_count += 1             # <<<<<<<<<<<<<<
@@ -1933,12 +1944,12 @@ static PyObject *__pyx_f_7secrets_6Secret_expose_secret(struct __pyx_obj_7secret
   /*else*/ {
     __pyx_v_self->expose_count = (__pyx_v_self->expose_count + 1);
 
-    /* "secrets.pyx":32
+    /* "secrets.pyx":36
  *         else:
  *             self.expose_count += 1
  *             return self.inner_secret             # <<<<<<<<<<<<<<
  * 
- *     def apply(self, object func, *, tuple func_args=tuple(), dict func_kwargs=dict()):
+ *     def apply(self,
  */
     __Pyx_XDECREF(__pyx_r);
     __Pyx_INCREF(__pyx_v_self->inner_secret);
@@ -1946,12 +1957,12 @@ static PyObject *__pyx_f_7secrets_6Secret_expose_secret(struct __pyx_obj_7secret
     goto __pyx_L0;
   }
 
-  /* "secrets.pyx":23
+  /* "secrets.pyx":26
  *         self.max_expose_count = max_expose_count
  * 
  *     cpdef object expose_secret(self):             # <<<<<<<<<<<<<<
- *         if self.max_expose_count != -1:
- *             if self.expose_count < self.max_expose_count:
+ * 
+ *         if self.max_expose_count >= 0:
  */
 
   /* function exit code */
@@ -1990,7 +2001,7 @@ static PyObject *__pyx_pf_7secrets_6Secret_2expose_secret(struct __pyx_obj_7secr
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("expose_secret", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7secrets_6Secret_expose_secret(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_7secrets_6Secret_expose_secret(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2007,12 +2018,12 @@ static PyObject *__pyx_pf_7secrets_6Secret_2expose_secret(struct __pyx_obj_7secr
   return __pyx_r;
 }
 
-/* "secrets.pyx":34
+/* "secrets.pyx":38
  *             return self.inner_secret
  * 
- *     def apply(self, object func, *, tuple func_args=tuple(), dict func_kwargs=dict()):             # <<<<<<<<<<<<<<
- *         # inner_secret = self.inner_secret
- *         # max_expose_count = self.max_expose_count
+ *     def apply(self,             # <<<<<<<<<<<<<<
+ *               object func,
+ *               *,
  */
 
 /* Python wrapper */
@@ -2055,7 +2066,7 @@ static PyObject *__pyx_pw_7secrets_6Secret_5apply(PyObject *__pyx_v_self, PyObje
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "apply") < 0)) __PYX_ERR(0, 34, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "apply") < 0)) __PYX_ERR(0, 38, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2068,14 +2079,14 @@ static PyObject *__pyx_pw_7secrets_6Secret_5apply(PyObject *__pyx_v_self, PyObje
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("apply", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 34, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("apply", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 38, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("secrets.Secret.apply", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_func_args), (&PyTuple_Type), 1, "func_args", 1))) __PYX_ERR(0, 34, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_func_kwargs), (&PyDict_Type), 1, "func_kwargs", 1))) __PYX_ERR(0, 34, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_func_args), (&PyTuple_Type), 1, "func_args", 1))) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_func_kwargs), (&PyDict_Type), 1, "func_kwargs", 1))) __PYX_ERR(0, 42, __pyx_L1_error)
   __pyx_r = __pyx_pf_7secrets_6Secret_4apply(((struct __pyx_obj_7secrets_Secret *)__pyx_v_self), __pyx_v_func, __pyx_v_func_args, __pyx_v_func_kwargs);
 
   /* function exit code */
@@ -2098,48 +2109,48 @@ static PyObject *__pyx_pf_7secrets_6Secret_4apply(struct __pyx_obj_7secrets_Secr
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("apply", 0);
 
-  /* "secrets.pyx":42
- *         # new_secret.max_expose_count = max_expose_count
- *         # print(new_secret.expose_secret(), new_secret.expose_count, new_secret.max_expose_count)
+  /* "secrets.pyx":44
+ *               dict func_kwargs=dict()):
+ * 
  *         return Secret(func(self.inner_secret, *func_args, **func_kwargs), max_expose_count=self.max_expose_count)             # <<<<<<<<<<<<<<
  * 
- * 
+ *     def __get__(self,
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_self->inner_secret);
   __Pyx_GIVEREF(__pyx_v_self->inner_secret);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_self->inner_secret);
   if (unlikely(__pyx_v_func_args == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 42, __pyx_L1_error)
+    __PYX_ERR(0, 44, __pyx_L1_error)
   }
-  __pyx_t_2 = PyNumber_Add(__pyx_t_1, __pyx_v_func_args); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_t_1, __pyx_v_func_args); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (unlikely(__pyx_v_func_kwargs == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-    __PYX_ERR(0, 42, __pyx_L1_error)
+    __PYX_ERR(0, 44, __pyx_L1_error)
   }
-  __pyx_t_1 = PyDict_Copy(__pyx_v_func_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_1 = PyDict_Copy(__pyx_v_func_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_v_func, __pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_v_func, __pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->max_expose_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->max_expose_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_max_expose_count, __pyx_t_2) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_max_expose_count, __pyx_t_2) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7secrets_Secret), __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7secrets_Secret), __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2147,12 +2158,12 @@ static PyObject *__pyx_pf_7secrets_6Secret_4apply(struct __pyx_obj_7secrets_Secr
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "secrets.pyx":34
+  /* "secrets.pyx":38
  *             return self.inner_secret
  * 
- *     def apply(self, object func, *, tuple func_args=tuple(), dict func_kwargs=dict()):             # <<<<<<<<<<<<<<
- *         # inner_secret = self.inner_secret
- *         # max_expose_count = self.max_expose_count
+ *     def apply(self,             # <<<<<<<<<<<<<<
+ *               object func,
+ *               *,
  */
 
   /* function exit code */
@@ -2164,6 +2175,170 @@ static PyObject *__pyx_pf_7secrets_6Secret_4apply(struct __pyx_obj_7secrets_Secr
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "secrets.pyx":46
+ *         return Secret(func(self.inner_secret, *func_args, **func_kwargs), max_expose_count=self.max_expose_count)
+ * 
+ *     def __get__(self,             # <<<<<<<<<<<<<<
+ *                 object inst,
+ *                 type owner):
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_7secrets_6Secret_7__get__(PyObject *__pyx_v_self, PyObject *__pyx_v_inst, PyObject *__pyx_v_owner); /*proto*/
+static PyObject *__pyx_pw_7secrets_6Secret_7__get__(PyObject *__pyx_v_self, PyObject *__pyx_v_inst, PyObject *__pyx_v_owner) {
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_owner), (&PyType_Type), 1, "owner", 1))) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_r = __pyx_pf_7secrets_6Secret_6__get__(((struct __pyx_obj_7secrets_Secret *)__pyx_v_self), ((PyObject *)__pyx_v_inst), ((PyTypeObject*)__pyx_v_owner));
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_7secrets_6Secret_6__get__(struct __pyx_obj_7secrets_Secret *__pyx_v_self, PyObject *__pyx_v_inst, CYTHON_UNUSED PyTypeObject *__pyx_v_owner) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  int __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__get__", 0);
+
+  /* "secrets.pyx":50
+ *                 type owner):
+ * 
+ *         if inst is None:             # <<<<<<<<<<<<<<
+ *             raise ValueError('`Secret` as a descriptor is inaccessible through the class')
+ *         return self
+ */
+  __pyx_t_1 = (__pyx_v_inst == Py_None);
+  __pyx_t_2 = (__pyx_t_1 != 0);
+  if (unlikely(__pyx_t_2)) {
+
+    /* "secrets.pyx":51
+ * 
+ *         if inst is None:
+ *             raise ValueError('`Secret` as a descriptor is inaccessible through the class')             # <<<<<<<<<<<<<<
+ *         return self
+ * 
+ */
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_Raise(__pyx_t_3, 0, 0, 0);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __PYX_ERR(0, 51, __pyx_L1_error)
+
+    /* "secrets.pyx":50
+ *                 type owner):
+ * 
+ *         if inst is None:             # <<<<<<<<<<<<<<
+ *             raise ValueError('`Secret` as a descriptor is inaccessible through the class')
+ *         return self
+ */
+  }
+
+  /* "secrets.pyx":52
+ *         if inst is None:
+ *             raise ValueError('`Secret` as a descriptor is inaccessible through the class')
+ *         return self             # <<<<<<<<<<<<<<
+ * 
+ *     def __set__(self,
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(((PyObject *)__pyx_v_self));
+  __pyx_r = ((PyObject *)__pyx_v_self);
+  goto __pyx_L0;
+
+  /* "secrets.pyx":46
+ *         return Secret(func(self.inner_secret, *func_args, **func_kwargs), max_expose_count=self.max_expose_count)
+ * 
+ *     def __get__(self,             # <<<<<<<<<<<<<<
+ *                 object inst,
+ *                 type owner):
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("secrets.Secret.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "secrets.pyx":54
+ *         return self
+ * 
+ *     def __set__(self,             # <<<<<<<<<<<<<<
+ *                 object inst,
+ *                 object value):
+ */
+
+/* Python wrapper */
+static int __pyx_pw_7secrets_6Secret_9__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_inst, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_7secrets_6Secret_9__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_inst, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_7secrets_6Secret_8__set__(((struct __pyx_obj_7secrets_Secret *)__pyx_v_self), ((PyObject *)__pyx_v_inst), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_7secrets_6Secret_8__set__(CYTHON_UNUSED struct __pyx_obj_7secrets_Secret *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_inst, CYTHON_UNUSED PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__set__", 0);
+
+  /* "secrets.pyx":58
+ *                 object value):
+ * 
+ *         raise TypeError('`Secret` as a class attribute is immutable')             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_Raise(__pyx_t_1, 0, 0, 0);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __PYX_ERR(0, 58, __pyx_L1_error)
+
+  /* "secrets.pyx":54
+ *         return self
+ * 
+ *     def __set__(self,             # <<<<<<<<<<<<<<
+ *                 object inst,
+ *                 object value):
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("secrets.Secret.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -2304,19 +2479,19 @@ static int __pyx_pf_7secrets_6Secret_16max_expose_count_2__set__(struct __pyx_ob
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7secrets_6Secret_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_7secrets_6Secret_7__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_7secrets_6Secret_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_7secrets_6Secret_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_7secrets_6Secret_6__reduce_cython__(((struct __pyx_obj_7secrets_Secret *)__pyx_v_self));
+  __pyx_r = __pyx_pf_7secrets_6Secret_10__reduce_cython__(((struct __pyx_obj_7secrets_Secret *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7secrets_6Secret_6__reduce_cython__(struct __pyx_obj_7secrets_Secret *__pyx_v_self) {
+static PyObject *__pyx_pf_7secrets_6Secret_10__reduce_cython__(struct __pyx_obj_7secrets_Secret *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -2549,19 +2724,19 @@ static PyObject *__pyx_pf_7secrets_6Secret_6__reduce_cython__(struct __pyx_obj_7
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7secrets_6Secret_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_7secrets_6Secret_9__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_7secrets_6Secret_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_7secrets_6Secret_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_7secrets_6Secret_8__setstate_cython__(((struct __pyx_obj_7secrets_Secret *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_7secrets_6Secret_12__setstate_cython__(((struct __pyx_obj_7secrets_Secret *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7secrets_6Secret_8__setstate_cython__(struct __pyx_obj_7secrets_Secret *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_7secrets_6Secret_12__setstate_cython__(struct __pyx_obj_7secrets_Secret *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2707,7 +2882,7 @@ static PyObject *__pyx_pf_7secrets___pyx_unpickle_Secret(CYTHON_UNUSED PyObject 
  */
   __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_tuple__5, Py_NE)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(1, 4, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_tuple__7, Py_NE)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (__pyx_t_3) {
@@ -3066,6 +3241,24 @@ static int __pyx_tp_clear_7secrets_Secret(PyObject *o) {
   return 0;
 }
 
+static PyObject *__pyx_tp_descr_get_7secrets_Secret(PyObject *o, PyObject *i, PyObject *c) {
+  PyObject *r = 0;
+  if (!i) i = Py_None;
+  if (!c) c = Py_None;
+  r = __pyx_pw_7secrets_6Secret_7__get__(o, i, c);
+  return r;
+}
+
+static int __pyx_tp_descr_set_7secrets_Secret(PyObject *o, PyObject *i, PyObject *v) {
+  if (v) {
+    return __pyx_pw_7secrets_6Secret_9__set__(o, i, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__delete__");
+    return -1;
+  }
+}
+
 static PyObject *__pyx_getprop_7secrets_6Secret_expose_count(PyObject *o, CYTHON_UNUSED void *x) {
   return __pyx_pw_7secrets_6Secret_12expose_count_1__get__(o);
 }
@@ -3087,8 +3280,8 @@ static int __pyx_setprop_7secrets_6Secret_max_expose_count(PyObject *o, PyObject
 static PyMethodDef __pyx_methods_7secrets_Secret[] = {
   {"expose_secret", (PyCFunction)__pyx_pw_7secrets_6Secret_3expose_secret, METH_NOARGS, 0},
   {"apply", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7secrets_6Secret_5apply, METH_VARARGS|METH_KEYWORDS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_7secrets_6Secret_7__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_7secrets_6Secret_9__setstate_cython__, METH_O, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_7secrets_6Secret_11__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_7secrets_6Secret_13__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -3141,8 +3334,8 @@ static PyTypeObject __pyx_type_7secrets_Secret = {
   __pyx_getsets_7secrets_Secret, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
+  __pyx_tp_descr_get_7secrets_Secret, /*tp_descr_get*/
+  __pyx_tp_descr_set_7secrets_Secret, /*tp_descr_set*/
   0, /*tp_dictoffset*/
   __pyx_pw_7secrets_6Secret_1__init__, /*tp_init*/
   0, /*tp_alloc*/
@@ -3220,8 +3413,11 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Incompatible_checksums_0x_x_vs_0, __pyx_k_Incompatible_checksums_0x_x_vs_0, sizeof(__pyx_k_Incompatible_checksums_0x_x_vs_0), 0, 0, 1, 0},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_Secret, __pyx_k_Secret, sizeof(__pyx_k_Secret), 0, 0, 1, 1},
+  {&__pyx_kp_u_Secret_as_a_class_attribute_is, __pyx_k_Secret_as_a_class_attribute_is, sizeof(__pyx_k_Secret_as_a_class_attribute_is), 0, 1, 0, 0},
+  {&__pyx_kp_u_Secret_as_a_descriptor_is_inacc, __pyx_k_Secret_as_a_descriptor_is_inacc, sizeof(__pyx_k_Secret_as_a_descriptor_is_inacc), 0, 1, 0, 0},
   {&__pyx_kp_u_Secret_cannot_be_exposed_more_t, __pyx_k_Secret_cannot_be_exposed_more_t, sizeof(__pyx_k_Secret_cannot_be_exposed_more_t), 0, 1, 0, 0},
   {&__pyx_kp_u_Secret_cannot_be_initialized_wi, __pyx_k_Secret_cannot_be_initialized_wi, sizeof(__pyx_k_Secret_cannot_be_initialized_wi), 0, 1, 0, 0},
+  {&__pyx_n_s_TypeError, __pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 0, 1, 1},
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
@@ -3257,8 +3453,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 16, __pyx_L1_error)
-  __pyx_builtin_AttributeError = __Pyx_GetBuiltinName(__pyx_n_s_AttributeError); if (!__pyx_builtin_AttributeError) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_builtin_AttributeError = __Pyx_GetBuiltinName(__pyx_n_s_AttributeError); if (!__pyx_builtin_AttributeError) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 58, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3268,16 +3465,38 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "secrets.pyx":16
- *                  int max_expose_count = -1):
+  /* "secrets.pyx":17
+ * 
  *         if func is not None and value is not None:
  *             raise ValueError("`Secret` cannot be initialized with both `value` positional argument and `func` keyword")             # <<<<<<<<<<<<<<
+ * 
  *         if func is not None:
- *             value = func(*func_args, **func_kwargs)
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_Secret_cannot_be_initialized_wi); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_Secret_cannot_be_initialized_wi); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
+
+  /* "secrets.pyx":51
+ * 
+ *         if inst is None:
+ *             raise ValueError('`Secret` as a descriptor is inaccessible through the class')             # <<<<<<<<<<<<<<
+ *         return self
+ * 
+ */
+  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_u_Secret_as_a_descriptor_is_inacc); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__5);
+  __Pyx_GIVEREF(__pyx_tuple__5);
+
+  /* "secrets.pyx":58
+ *                 object value):
+ * 
+ *         raise TypeError('`Secret` as a class attribute is immutable')             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_u_Secret_as_a_class_attribute_is); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__6);
+  __Pyx_GIVEREF(__pyx_tuple__6);
 
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
@@ -3286,19 +3505,19 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (0x%x vs (0xe1fdbe3, 0x92bfa01, 0x8c9d394) = (expose_count, inner_secret, max_expose_count))" % __pyx_checksum)
  */
-  __pyx_tuple__5 = PyTuple_Pack(3, __pyx_int_236968931, __pyx_int_153876993, __pyx_int_147444628); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(1, 4, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__5);
-  __Pyx_GIVEREF(__pyx_tuple__5);
+  __pyx_tuple__7 = PyTuple_Pack(3, __pyx_int_236968931, __pyx_int_153876993, __pyx_int_147444628); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(1, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__7);
+  __Pyx_GIVEREF(__pyx_tuple__7);
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Secret(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_tuple__6 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__6);
-  __Pyx_GIVEREF(__pyx_tuple__6);
-  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Secret, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__8);
+  __Pyx_GIVEREF(__pyx_tuple__8);
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Secret, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -3604,7 +3823,7 @@ if (!__Pyx_RefNanny) {
  *                  tuple func_args = (),
  *                  dict func_kwargs = {},             # <<<<<<<<<<<<<<
  *                  int max_expose_count = -1):
- *         if func is not None and value is not None:
+ * 
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -3612,19 +3831,27 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "secrets.pyx":34
- *             return self.inner_secret
+  /* "secrets.pyx":41
+ *               object func,
+ *               *,
+ *               tuple func_args=tuple(),             # <<<<<<<<<<<<<<
+ *               dict func_kwargs=dict()):
  * 
- *     def apply(self, object func, *, tuple func_args=tuple(), dict func_kwargs=dict()):             # <<<<<<<<<<<<<<
- *         # inner_secret = self.inner_secret
- *         # max_expose_count = self.max_expose_count
  */
-  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)(&PyTuple_Type))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)(&PyTuple_Type))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_k__3 = ((PyObject*)__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+
+  /* "secrets.pyx":42
+ *               *,
+ *               tuple func_args=tuple(),
+ *               dict func_kwargs=dict()):             # <<<<<<<<<<<<<<
+ * 
+ *         return Secret(func(self.inner_secret, *func_args, **func_kwargs), max_expose_count=self.max_expose_count)
+ */
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_k__4 = ((PyObject*)__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
