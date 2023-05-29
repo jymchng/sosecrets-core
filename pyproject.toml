@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sosecrets-core"
-version = "1.0.6"
+version = "1.0.7"
 description = ""
 authors = ["Jim Chng <jimchng@outlook.com>"]
 readme = "README.md"
@@ -26,7 +26,7 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.bumpver]
-current_version = "1.0.6"
+current_version = "1.0.7"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true
