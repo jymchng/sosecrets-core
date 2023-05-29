@@ -2,13 +2,27 @@
 name = "sosecrets-core"
 version = "0.1.0"
 description = ""
-authors = ["Jim Chng <jimchng@outlook.com>"]
+authors = [
+  { name = "Jim Chng", email = "jimchng@outlook.com" },
+]
 readme = "README.md"
 packages = [{include = "sosecrets_core"}]
 
 [tool.poetry.dependencies]
 python = "^3.7"
 
+classifiers = [
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Cython",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: Microsoft :: Windows",
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "setuptools>=57.0.0", "Cython>=0.29.27"]

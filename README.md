@@ -1,5 +1,7 @@
 # sosecrets-core
 
+![](https://badgen.net/pypi/python/sosecrets-core) 
+
 Version: 0.1.0
 
 This Repo is a Cython implementation of a `Secret` class that allows you to hide a value or function behind a layer of security. The idea is that you can expose the secret value or function only a limited number of times, and only through a function call that checks the current exposure count against a maximum exposure count.
