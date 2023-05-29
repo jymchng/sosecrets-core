@@ -1,10 +1,4 @@
 #cython: language_level=3
-from typing import Optional, Dict, Callable, Any, Tuple, TypeVar
-
-
-T = TypeVar('T')
-
-
 cdef class Secret:
 
     cdef object inner_secret
@@ -12,13 +6,12 @@ cdef class Secret:
     cdef public int max_expose_count
 
     def __init__(self,
-                 value: Optional[T] = None,
+                 object value = None,
                  *,
-                 func: Optional[Callable[[Any],
-                                T]] = None,
-                 func_args: Tuple[Any] = (),
-                 func_kwargs: Dict[str, Any] = {},
-                 max_expose_count: int = -1):
+                 object func = None,
+                 tuple func_args = (),
+                 dict func_kwargs = {},
+                 int max_expose_count = -1):
         if func is not None and value is not None:
             raise ValueError("`Secret` cannot be initialized with both `value` positional argument and `func` keyword")
         if func is not None:
@@ -38,14 +31,7 @@ cdef class Secret:
             self.expose_count += 1
             return self.inner_secret
 
-    def apply(self, func: Optional[Callable[[Any], T]], *, func_args: Tuple[Any]=(), func_kwargs: Dict[Any, Any]={}):
-        inner_secret = self.inner_secret
-        max_expose_count = self.max_expose_count
-        # print(inner_secret, max_expose_count)
-        # new_secret value is None
-        # new_secret = Secret.__new__(Secret, func(inner_secret, *func_args, **func_kwargs), max_expose_count=max_expose_count)
-        # new_secret.max_expose_count = max_expose_count
-        # print(new_secret.expose_secret(), new_secret.expose_count, new_secret.max_expose_count)
-        return Secret(func(inner_secret, *func_args, **func_kwargs), max_expose_count=max_expose_count)
+    def apply(self, object func, *, tuple func_args=tuple(), dict func_kwargs=dict()):
+        return Secret(func(self.inner_secret, *func_args, **func_kwargs), max_expose_count=self.max_expose_count)
 
     

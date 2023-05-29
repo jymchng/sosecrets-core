@@ -121,3 +121,46 @@ def test_raises_if_both_value_and_func():
 
     with pytest.raises(ValueError):
         s = Secret("hello", func=funcc, func_args=('zz', 'bb'))
+
+
+def test_subclass():
+    
+    class ExposedSecret(Secret):
+        
+        def __new__(cls, value=None, func=None, func_args=tuple(), func_kwargs=dict(), max_expose_count=-1):
+            inst = super().__new__(cls, value=value, func=func, func_args=func_args, func_kwargs=func_kwargs, max_expose_count=max_expose_count)
+            return inst
+        
+        @property
+        def secret(self):
+            return super().expose_secret()
+        
+    exp_scrt = ExposedSecret("hello")
+    
+    def funcc(a, gg, kk='hihi'):
+        return kk + a + gg
+    
+    exp_scrt_from_func = ExposedSecret(func=funcc, func_args=('bb','aa'))
+    
+    for i in range(1000):
+        assert exp_scrt.expose_secret() == 'hello'
+        assert exp_scrt.expose_count == i + 1
+        assert exp_scrt.max_expose_count == -1
+        
+        assert exp_scrt_from_func.expose_secret() == 'hihibbaa'
+        assert exp_scrt_from_func.expose_count == i + 1
+        assert exp_scrt_from_func.max_expose_count == -1
+        
+    exp_scrt_five_times = ExposedSecret("hello", max_expose_count=5)
+    
+    exp_scrt_from_func_five_times = ExposedSecret(func=funcc, func_args=('zz', 'bb'), max_expose_count=5)
+    
+    with pytest.raises(AttributeError):
+        for i in range(6):
+            assert exp_scrt_five_times.secret == 'hello'
+            assert exp_scrt_five_times.expose_count == i + 1
+            assert exp_scrt_five_times.max_expose_count == 5
+            
+            assert exp_scrt_from_func_five_times.secret == 'hihizzbb'
+            assert exp_scrt_from_func_five_times.expose_count == i + 1
+            assert exp_scrt_from_func_five_times.max_expose_count == 5
