@@ -42,7 +42,7 @@ else:
 
 setup(
     name='sosecrets_core',
-    version="0.1.0",
+    version="1.0.1",
     description='Simple Secret Primitive for Python',
     author='Jim Chng',
     author_email='jimchng@outlook.com',
