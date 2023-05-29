@@ -1,8 +1,8 @@
-from typing import Callable, Optional, Any, Dict, Tuple
+from typing import Callable, Optional, Any, Dict, Tuple, ClassVar
 
 class Secret:
-    expose_count: int
-    max_expose_count: int
+    expose_count: ClassVar[int]
+    max_expose_count: ClassVar[int]
 
     def __init__(
         self,
