@@ -21,6 +21,9 @@ A class representing a secret value with controlled exposure.
 
 Initialize a `Secret` object.
 
+Notes:
+1. `Secret` is not thread-safe, because `expose_count` is not atomically-mutated.
+
 * value: The initial value of the `Secret` object. If provided, it takes precedence over `func`.
 * func: A function used to generate the initial value of the `Secret` object. Ignored if value is provided.
 * func_args: Positional arguments to pass to the `func` function.
