@@ -1,6 +1,6 @@
 # sosecrets-core
 
-![https://img.shields.io/github/actions/workflow/status/jymchng/sosecrets-core/testing.yml](https://img.shields.io/github/actions/workflow/status/jymchng/sosecrets-core/testing.yml) ![https://img.shields.io/pypi/pyversions/sosecrets-core](https://img.shields.io/pypi/pyversions/sosecrets-core)
+![https://img.shields.io/github/actions/workflow/status/jymchng/sosecrets-core/testing.yml](https://img.shields.io/github/actions/workflow/status/jymchng/sosecrets-core/testing.yml) ![https://img.shields.io/pypi/pyversions/sosecrets-core](https://img.shields.io/pypi/pyversions/sosecrets-core) ![https://img.shields.io/pypi/dm/sosecrets-core](https://img.shields.io/pypi/dm/sosecrets-core)
 
 Version: 1.0.4
 
