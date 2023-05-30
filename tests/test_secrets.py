@@ -13,7 +13,7 @@ def test_after_apply_max_expose_count_remains_same_and_raises():
     with pytest.raises(AttributeError):
         for i in range(5):
             scrt = d.expose_secret()
-            assert scrt.expose_count == 1 + i
+            assert d.expose_count == 1 + i
             assert scrt == 'bbbyelol'
             print(scrt, end=" ")
             print(d.expose_count, end=" ")
@@ -25,7 +25,7 @@ def test_max_expose_count_works():
     with pytest.raises(AttributeError):
         for i in range(5):
             scrt = s.expose_secret()
-            assert scrt.expose_count == i + 1
+            assert s.expose_count == i + 1
             assert scrt == 'bye'
             print(scrt, end=" ")
             print(s.expose_count, end=" ")
@@ -142,6 +142,15 @@ def test_mutable_max_expose_count():
             assert s.expose_count == i
             assert s.max_expose_count == 5
             assert s.expose_secret() == 'hihizzbb'
+    
+    s = Secret(func=funcc, func_args=('zz', 'bb'), max_expose_count=0)
+    s.max_expose_count = -100
+    assert s.expose_count == 0
+    assert s.max_expose_count == -100
+    for i in range(1000):
+        srct = s.expose_secret()
+        assert srct == 'hihizzbb'
+        assert s.expose_count == i+1
 
 
 def test_subclass():
