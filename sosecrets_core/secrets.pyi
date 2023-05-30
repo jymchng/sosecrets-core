@@ -1,6 +1,8 @@
-from typing import Callable, Optional, Any, Dict, Tuple, ClassVar
+from typing import Callable, Optional, Any, Dict, Tuple, ClassVar, TypeVar, Generic
 
-class Secret:
+T = TypeVar('T')
+
+class Secret(Generic[T]):
     """The Secret class is a Python class that encapsulates a secret value and provides methods to access and manipulate it.
     The secret value can be initialized either with a direct value or with a function that generates the value.
     The class allows for limiting the number of times the secret value can be exposed, which can be useful in certain security contexts.
@@ -19,9 +21,9 @@ class Secret:
 
     def __init__(
         self,
-        value: Optional[Any] = ...,
+        value: Optional[T] = ...,
         *,
-        func: Optional[Any] = ...,
+        func: Optional[Callable[..., T]] = ...,
         func_args: Tuple[Any, ...] = ...,
         func_kwargs: Dict[str, Any] = ...,
         max_expose_count: int = ...,
@@ -42,7 +44,7 @@ class Secret:
         """
         ...
 
-    def expose_secret(self) -> object:
+    def expose_secret(self) -> T:
         """
         Expose the secret value.
 
@@ -57,7 +59,7 @@ class Secret:
 
     def apply(
         self,
-        func: Callable[[Any], Any],
+        func: Callable[..., Any],
         *,
         func_args: Tuple[Any, ...] = ...,
         func_kwargs: Dict[str, Any] = ...,

@@ -31,12 +31,14 @@ jobs:
         run: |
           pip install cython
           pip install pytest
+          pip install mypy
           cythonize ${{ github.workspace }}/sosecrets_core/secrets.pyx
           python -m setup install
           
       - name: Run tests
         run: |
           python -m pytest .
+          mypy sosecrets_core/secrets.pyi 
 
   test-testpypi-install:
     continue-on-error: True
