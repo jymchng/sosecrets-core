@@ -19,9 +19,11 @@ The `Secret` class has four attributes:
 
 ### Secret
 
+`Secret[T]` is generic over any type `T`.
+
 A class representing a secret value with controlled exposure.
 
-> `__init__(self, value: Optional[Any] = ..., *, func: Optional[Any] = ..., func_args: Tuple[Any, ...] = ..., func_kwargs: Dict[str, Any] = ..., max_expose_count: int = ...) -> Secret`
+> `__init__(self, value: Optional[T] = ..., *, func: Optional[Callable[..., T]] = ..., func_args: Tuple[Any, ...] = ..., func_kwargs: Dict[str, Any] = ..., max_expose_count: int = ...) -> Secret[T]`
 
 Initialize a `Secret` object.
 
@@ -42,7 +44,7 @@ Raises:
 
 Exposes the secret value.
 
-> `expose_secret(self) -> object`
+> `expose_secret(self) -> T`
 
 Returns:
 
@@ -56,7 +58,7 @@ Raises:
 
 Apply a function to the inner secret value and return a new `Secret` object.
 
-> `apply(self, func: Callable[[Any, ...], Any], *, func_args: Tuple[Any, ...] = ..., func_kwargs: Dict[str, Any] = ...) -> Secret`
+> `apply(self, func: Callable[[Any, ...], U], *, func_args: Tuple[Any, ...] = ..., func_kwargs: Dict[str, Any] = ...) -> Secret[U]`
 
 * func: The function to apply to the inner secret value.
 * func_args: Positional arguments to pass to the `func` function.
