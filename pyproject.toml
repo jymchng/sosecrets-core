@@ -19,3 +19,7 @@ push = true
 "setup.py" = [
     'version="{version}"',
 ]
+
+"sosecrets_core" = [
+    'DEF VERSION = "{version}"',
+]
