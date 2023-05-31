@@ -1,7 +1,4 @@
 #cython: language_level=3
-
-DEF VERSION = "1.0.19"
-
 cdef class Secret:
 
     cdef object inner_secret
