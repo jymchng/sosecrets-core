@@ -3,15 +3,15 @@ from typing import Callable, Optional, Any, Dict, Tuple, ClassVar, TypeVar, Gene
 T = TypeVar('T')
 
 class Secret(Generic[T]):
-    """The Secret class is a Python class that encapsulates a secret value and provides methods to access it.
+    """The `Secret` class is a Python class that encapsulates a secret value and provides method to access it.
     The secret value can be initialized either with a direct value or with a function that generates the value.
     The class allows for limiting the number of times the secret value can be exposed.
 
-    The `expose_secret()` method returns the inner secret value and increments the exposure count, `max_expose_count`.
-    If the exposure count, `expose_count` is larger than the maximum exposure count, an AttributeError is raised.
+    The `expose_secret()` method returns the inner secret value and increments the exposure count, `expose_count`.
+    If the exposure count, `expose_count` is larger than the maximum exposure count, `max_expose_count`, an AttributeError is raised.
     
-    The `apply()` method applies a function to the inner secret value and returns a new Secret object with the result encapsulated within.
-    The original Secret object is not modified.
+    The `apply()` method applies a function to the inner secret value and returns a new `Secret` object with the result encapsulated within.
+    The original `Secret` object is not modified.
 
     This class provides a way to control access to sensitive data by encapsulating it within a class and allowing access only through well-defined methods.
     This can help prevent accidental exposure of sensitive data as much as possible.
@@ -29,14 +29,14 @@ class Secret(Generic[T]):
         max_expose_count: int = ...,
     ) -> None:
         """
-        Initialize a Secret object.
+        Initialize a `Secret` object.
 
         Args:
-            value: The initial value of the Secret object. If provided, it takes precedence over `func`.
-            func: A function used to generate the initial value of the Secret object. Ignored if `value` is provided.
+            value: The initial value of the `Secret` object. If provided, it takes precedence over `func`.
+            func: A function used to generate the initial value of the `Secret` object. Ignored if `value` is provided.
             func_args: Positional arguments to pass to the `func` function. Ignored if `value` is provided.
             func_kwargs: Keyword arguments to pass to the `func` function. Ignored if `value` is provided.
-            max_expose_count: The maximum number of times the Secret object can be exposed. Set to -1 for unlimited.
+            max_expose_count: The maximum number of times the `Secret` object can be exposed. Set to -1 for unlimited.
 
         Raises:
             ValueError: If both `value` and `func` arguments are provided.
@@ -49,10 +49,10 @@ class Secret(Generic[T]):
         Expose the secret value.
 
         Returns:
-            The inner secret value.
+            The secret value.
 
         Raises:
-            AttributeError: If the Secret object has reached the maximum exposure count.
+            AttributeError: If the `Secret` object's exposure count has exceeded the maximum exposure count.
 
         """
         ...
@@ -65,7 +65,7 @@ class Secret(Generic[T]):
         func_kwargs: Dict[str, Any] = ...,
     ) -> 'Secret':
         """
-        Apply a function to the inner secret value and return a new Secret object.
+        Apply a function to the inner secret value and return a new `Secret` object.
 
         Args:
             func: The function to apply to the inner secret value.
@@ -73,7 +73,7 @@ class Secret(Generic[T]):
             func_kwargs: Keyword arguments to pass to the `func` function.
 
         Returns:
-            A new Secret object with the result of applying the function to the inner secret value.
+            A new `Secret` object with the result of applying the function to the inner secret value.
 
         """
         ...

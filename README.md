@@ -13,7 +13,7 @@ The `Secret` class has four attributes:
 * `inner_secret`: a private attribute that stores the actual secret value or function.
 * `expose_count`: a readonly attribute that keeps track of how many times the secret has been exposed.
 * `max_expose_count`: a public (read and write) attribute that sets the maximum number of times the secret can be exposed. If set to any negative integers, there is no limit to the number of exposures.
-* `apply`: a public method that applies a given function to the exposed secret and returns a new `Secret` object with the result.
+* `apply`: a public method that applies a given function to the secret and returns a new `Secret` object with the result.
 
 ## API
 
@@ -52,7 +52,7 @@ The inner secret value.
 
 Raises:
 
-* AttributeError: If the Secret object has reached the maximum exposure count.
+* AttributeError: If the `Secret` object has reached the maximum exposure count.
 
 ### `Secret.apply(...)`
 
@@ -66,7 +66,7 @@ Apply a function to the inner secret value and return a new `Secret` object.
 
 Returns:
 
-A new Secret object with the result of applying the function to the inner secret value.
+A new `Secret` object with the result of applying the function to the inner secret value.
 
 ## License
 This code is released under the MIT License.
