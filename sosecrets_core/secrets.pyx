@@ -35,9 +35,8 @@ cdef class Secret:
             self.expose_count += 1
             return self.inner_secret
 
-    def apply(self,
+    cpdef apply(self,
               object func,
-              *,
               tuple func_args=tuple(),
               dict func_kwargs=dict()):
 
